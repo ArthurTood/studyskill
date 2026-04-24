@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>课程型知识网站模板</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <!-- 左侧只负责导航、阅读进度和当前章节提示。 -->
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <p class="eyebrow">Course Overview</p>
+          <h1>Transformer 原理课程模板</h1>
+          <p class="sidebar-text">
+            左侧只负责导航、当前章节提示和阅读进度，正文在中间连续展开，用户只需向下滚动即可完成整站阅读。
+          </p>
+          <div class="progress-block">
+            <div class="progress-meta">
+              <span>阅读进度</span>
+              <strong id="progress-text">0%</strong>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+        </div>
+
+        <nav class="sidebar-card chapter-nav" aria-label="章节导航">
+          <p class="eyebrow">Chapters</p>
+          <ul>
+            <li><a href="#chapter-1" data-target="chapter-1">1. 为什么需要注意力机制</a></li>
+            <li><a href="#chapter-2" data-target="chapter-2">2. Self-Attention 怎么算</a></li>
+            <li><a href="#chapter-3" data-target="chapter-3">3. 多头注意力为什么有效</a></li>
+            <li><a href="#question-bank" data-target="question-bank">4. 题库与错题回顾</a></li>
+          </ul>
+          <div class="current-reading">
+            <span>当前阅读</span>
+            <strong id="current-section">课程开场</strong>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- 中间正文连续展开，避免点击切换正文内容。 -->
+      <main class="content">
+        <section class="hero-card">
+          <p class="eyebrow">arXiv-grounded learning page</p>
+          <h2>面向“连续阅读 + 深度理解 + 本地刷题”的课程网站脚手架</h2>
+          <p>
+            这个模板保留了课程网站最核心的信息架构：左侧 sticky 导航，中间连续下拉正文，章节卡片化编排，末尾题库支持收藏题、错题回顾和本地保存。
+          </p>
+          <div class="hero-tags">
+            <span>连续下拉</span>
+            <span>Notion 卡片风格</span>
+            <span>章节小测</span>
+            <span>本地题库</span>
+          </div>
+        </section>
+
+        <section class="chapter-card course-section" id="chapter-1" data-title="为什么需要注意力机制">
+          <header class="chapter-header">
+            <p class="chapter-index">Chapter 1</p>
+            <h3>为什么需要注意力机制</h3>
+          </header>
+
+          <article class="lesson-block">
+            <h4>通俗易懂的解释</h4>
+            <p>
+              可以把注意力机制理解成“读一句话时，当前词会主动去看哪些上下文最重要”。相比把整句压成一个固定长度向量，注意力机制允许模型在需要的时候重新读取相关位置。
+            </p>
+          </article>
+
+          <article class="lesson-block">
+            <h4>底层原理</h4>
+            <p>
+              在经典 Encoder-Decoder 结构里，固定长度上下文向量容易形成信息瓶颈。注意力机制通过可学习的相关性打分，在解码的每一步都动态选择更有用的上下文表示。
+            </p>
+          </article>
+
+          <article class="lesson-block diagram-block">
+            <h4>图解</h4>
+            <div class="diagram">
+              <div class="diagram-node">当前词</div>
+              <div class="diagram-arrows">
+                <span></span>
+                <span></span>
+                <span class="active"></span>
+              </div>
+              <div class="diagram-stack">
+                <div>历史词 1</div>
+                <div>历史词 2</div>
+                <div class="focus">历史词 3</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="lesson-block">
+            <h4>数学原理深挖</h4>
+            <p>
+              最早的注意力可以抽象成对一组上下文向量做加权求和，其中权重来自打分函数后的归一化分布。直觉上，它是一个“软选择”过程，而不是硬检索。
+            </p>
+          </article>
+
+          <article class="lesson-block two-col">
+            <div>
+              <h4>常见误解</h4>
+              <p>注意力不是“真正理解”，它只是让模型更灵活地分配信息读取权重。</p>
+            </div>
+            <div>
+              <h4>这一章你该记住什么</h4>
+              <p>注意力机制的核心价值，是打破固定向量瓶颈，让模型按需读取上下文。</p>
+            </div>
+          </article>
+
+          <article class="lesson-block">
+            <h4>复盘提示</h4>
+            <p>试着自己回答：如果没有注意力机制，长句翻译为什么更容易丢信息？</p>
+          </article>
+
+          <article class="lesson-block quiz-block">
+            <h4>章节小测</h4>
+            <div class="question">
+              <p>1. 注意力机制最直接解决的是什么问题？</p>
+              <label><input type="radio" name="q1" value="A" /> A. 让模型参数更少</label>
+              <label><input type="radio" name="q1" value="B" /> B. 缓解固定长度表示的信息瓶颈</label>
+              <label><input type="radio" name="q1" value="C" /> C. 让训练一定更快</label>
+              <button class="grade-btn" data-question-id="q1" data-answer="B">提交本题</button>
+              <p class="feedback" id="feedback-q1"></p>
+            </div>
+          </article>
+        </section>
+
+        <section class="chapter-card course-section" id="chapter-2" data-title="Self-Attention 怎么算">
+          <header class="chapter-header">
+            <p class="chapter-index">Chapter 2</p>
+            <h3>Self-Attention 怎么算</h3>
+          </header>
+
+          <article class="lesson-block">
+            <h4>通俗易懂的解释</h4>
+            <p>
+              Self-Attention 的直觉是：序列中的每个 token 都会问自己一个问题，“在理解我时，句子里的其他位置谁最重要？”
+            </p>
+          </article>
+
+          <article class="lesson-block">
+            <h4>底层原理</h4>
+            <p>
+              每个 token 会生成 Query、Key、Value。当前 token 的 Query 与其他 token 的 Key 做相似度计算，得到权重，再对对应的 Value 加权求和。
+            </p>
+          </article>
+
+          <article class="lesson-block">
+            <h4>数学原理深挖</h4>
+            <p class="formula">
+              Attention(Q, K, V) = softmax((QK^T) / √d<sub>k</sub>) V
+            </p>
+            <p>
+              这里的缩放项用于控制内积随维度增大而变大的问题，避免 softmax 进入过于尖锐的区域。
+            </p>
+          </article>
+
+          <article class="lesson-block two-col">
+            <div>
+              <h4>常见误解</h4>
+              <p>Q、K、V 不是三份完全不同的输入，而是同一份表示经过不同线性投影后的结果。</p>
+            </div>
+            <div>
+              <h4>这一章你该记住什么</h4>
+              <p>Self-Attention 本质上是“相似度加权汇总”，不是神秘黑盒。</p>
+            </div>
+          </article>
+
+          <article class="lesson-block">
+            <h4>复盘提示</h4>
+            <p>试着解释：如果去掉缩放项 √d<sub>k</sub>，训练时通常会发生什么？</p>
+          </article>
+
+          <article class="lesson-block quiz-block">
+            <h4>章节小测</h4>
+            <div class="question">
+              <p>2. 缩放点积注意力中除以 √d<sub>k</sub> 的主要目的是什么？</p>
+              <label><input type="radio" name="q2" value="A" /> A. 降低参数量</label>
+              <label><input type="radio" name="q2" value="B" /> B. 控制打分数值尺度</label>
+              <label><input type="radio" name="q2" value="C" /> C. 引入位置编码</label>
+              <button class="grade-btn" data-question-id="q2" data-answer="B">提交本题</button>
+              <p class="feedback" id="feedback-q2"></p>
+            </div>
+          </article>
+        </section>
+
+        <section class="chapter-card course-section" id="chapter-3" data-title="多头注意力为什么有效">
+          <header class="chapter-header">
+            <p class="chapter-index">Chapter 3</p>
+            <h3>多头注意力为什么有效</h3>
+          </header>
+
+          <article class="lesson-block">
+            <h4>通俗易懂的解释</h4>
+            <p>多头注意力就像让多个“观察角度”并行看同一句话，有的关注语法关系，有的关注长距离依赖，有的关注实体对齐。</p>
+          </article>
+
+          <article class="lesson-block">
+            <h4>底层原理</h4>
+            <p>多个 head 在不同投影子空间中分别做注意力，再把结果拼接起来，让模型同时保留多种关系模式。</p>
+          </article>
+
+          <article class="lesson-block two-col">
+            <div>
+              <h4>常见误解</h4>
+              <p>多头不是简单重复计算；关键在于不同投影空间允许 head 学到互补关系。</p>
+            </div>
+            <div>
+              <h4>这一章你该记住什么</h4>
+              <p>多头的价值在于表达多样性，而不是单纯增加计算量。</p>
+            </div>
+          </article>
+
+          <article class="lesson-block">
+            <h4>复盘提示</h4>
+            <p>如果所有 head 学到完全一样的模式，多头注意力理论上还剩下多少额外价值？</p>
+          </article>
+
+          <article class="lesson-block quiz-block">
+            <h4>章节小测</h4>
+            <div class="question">
+              <p>3. 多头注意力最核心的收益是什么？</p>
+              <label><input type="radio" name="q3" value="A" /> A. 可以并行建模不同关系模式</label>
+              <label><input type="radio" name="q3" value="B" /> B. 完全消除位置编码需求</label>
+              <label><input type="radio" name="q3" value="C" /> C. 一定减少推理成本</label>
+              <button class="grade-btn" data-question-id="q3" data-answer="A">提交本题</button>
+              <p class="feedback" id="feedback-q3"></p>
+            </div>
+          </article>
+        </section>
+
+        <!-- 页面底部题库用于承接收藏题、错题回顾和本地状态恢复。 -->
+        <section class="chapter-card course-section" id="question-bank" data-title="题库与错题回顾">
+          <header class="chapter-header">
+            <p class="chapter-index">Question Bank</p>
+            <h3>章节总测与本地题库</h3>
+          </header>
+
+          <article class="lesson-block">
+            <h4>章节总测</h4>
+            <p>这个区域用于汇总整站核心知识点。模板内置本地状态保存能力，适合作为收藏题和错题回顾的基础版本。</p>
+          </article>
+
+          <article class="lesson-block bank-grid">
+            <div class="bank-panel">
+              <h4>收藏题</h4>
+              <ul id="favorite-list" class="saved-list">
+                <li>暂无收藏题</li>
+              </ul>
+            </div>
+            <div class="bank-panel">
+              <h4>错题回顾</h4>
+              <ul id="wrong-list" class="saved-list">
+                <li>暂无错题</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="lesson-block all-questions">
+            <h4>题库管理</h4>
+            <div class="bank-actions">
+              <button class="favorite-btn" data-favorite-id="q1">收藏第 1 题</button>
+              <button class="favorite-btn" data-favorite-id="q2">收藏第 2 题</button>
+              <button class="favorite-btn" data-favorite-id="q3">收藏第 3 题</button>
+              <button class="clear-btn" id="clear-storage">清空本地记录</button>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
