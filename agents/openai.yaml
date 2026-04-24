@@ -1,0 +1,5 @@
+interface:
+  display_name: "Knowledge Course Site"
+  short_description: "生成课程型知识讲解与题库学习网站"
+  default_prompt: "Use $knowledge-course-site to generate a continuous-scroll course website that teaches a topic with arXiv-grounded explanations, diagrams, quizzes, and local favorite/wrong-question review."
+
