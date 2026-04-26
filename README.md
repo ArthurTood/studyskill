@@ -1,10 +1,10 @@
-# Knowledge Course Site
+# StudySkill
 
 一个专门用于“生成课程型知识网站”的 Codex skill。
 
 它的目标不是只生成一个好看的页面，而是帮助你稳定产出真正适合学习、复习、做题和长期沉淀的知识课程网站。
 
-仓库地址：<https://github.com/ArthurTood/knowledge-course-site>
+仓库地址：<https://github.com/ArthurTood/studyskill>
 
 ## 这个 skill 解决什么问题
 
@@ -115,13 +115,13 @@
 在 Codex 中直接这样调用：
 
 ```text
-用 $knowledge-course-site 生成一个讲解 Transformer 原理的课程网站，面向有基础的前端工程师，偏直觉 + 数学，带题库版。
+用 $studyskill 生成一个讲解 Transformer 原理的课程网站，面向有基础的前端工程师，偏直觉 + 数学，带题库版。
 ```
 
 也可以这样：
 
 ```text
-Use $knowledge-course-site to create a continuous-scroll course website that teaches diffusion models for beginners, grounded in arXiv papers, with diagrams, chapter quizzes, and local wrong-question review.
+Use $studyskill to create a continuous-scroll course website that teaches diffusion models for beginners, grounded in arXiv papers, with diagrams, chapter quizzes, and local wrong-question review.
 ```
 
 ## 推荐提示词模板
@@ -129,7 +129,7 @@ Use $knowledge-course-site to create a continuous-scroll course website that tea
 你可以按下面这个格式直接提要求：
 
 ```text
-用 $knowledge-course-site 生成一个讲解【主题】的课程网站，
+用 $studyskill 生成一个讲解【主题】的课程网站，
 面向【目标读者】，
 深度偏【直觉 / 工程 / 数学 / 论文】，
 是否需要题库版：【是 / 否】，
@@ -140,7 +140,7 @@ Use $knowledge-course-site to create a continuous-scroll course website that tea
 ## 仓库结构
 
 ```text
-knowledge-course-site/
+studyskill/
 ├── SKILL.md
 ├── README.md
 ├── agents/
